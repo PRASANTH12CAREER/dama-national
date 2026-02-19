@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Dama National</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i class="fas fa-gift"></i></span>
+        <span class="logo-text">Dama National</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="gift-items.html" class="nav-link">Gift Items</a></li>
+          <li><a href="branding.html" class="nav-link">Branding</a></li>
+          <li><a href="advertising.html" class="nav-link">Advertising</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title reveal">Contact Us</h1>
+        <p class="page-subtitle reveal">Drop us an email and we'll get back to you.</p>
+      </div>
+    </section>
+
+    <section class="section contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <h2>Get in Touch</h2>
+            <p>Have a project in mind? We'd love to hear from you. Fill out the form or reach us directly.</p>
+            <ul class="contact-details">
+              <li>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@dama-national.com">info@dama-national.com</a>
+              </li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Address placeholder — Your City, Country</span>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>+968 XXXX XXXX</span>
+              </li>
+            </ul>
+          </div>
+          <div class="contact-form-wrapper reveal">
+            <form class="contact-form" id="contact-form" action="#" method="post">
+              <div class="form-group">
+                <label for="name">Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label for="message">Message <span class="required">*</span></label>
+                <textarea id="message" name="message" rows="5" required placeholder="Your message"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+            </form>
+          </div>
+        </div>
+        <div class="map-placeholder reveal">
+          <h3>Find Us</h3>
+          <div class="map-embed" aria-label="Map placeholder">
+            <div class="map-placeholder-inner">
+              <i class="fas fa-map-marked-alt"></i>
+              <p>Google Map embed placeholder</p>
+              <p class="map-hint">Replace with your Google Maps iframe or embed code</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gift-items.html">Gift Items</a></li>
+            <li><a href="branding.html">Branding</a></li>
+            <li><a href="advertising.html">Advertising</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li>Corporate Gifts</li>
+            <li>Promotional Items</li>
+            <li>Printing &amp; Branding</li>
+            <li>Advertising Materials</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Dama National. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
