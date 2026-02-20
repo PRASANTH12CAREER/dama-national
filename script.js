@@ -1,6 +1,6 @@
 /**
- * Dama National - Corporate Gifts, Branding & Advertising
- * Interactive behavior: mobile menu, scroll reveal, product filter, contact form
+ * Chachly / Dama National - Corporate Gifts, Branding & Advertising
+ * Interactive: mobile menu, scroll reveal, product filter, hero parallax, contact form
  */
 
 (function () {
@@ -10,6 +10,41 @@
   var yearEl = document.getElementById('year');
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
+  }
+
+  // ----- Hero parallax & micro-interactions on scroll (homepage) -----
+  var hero = document.getElementById('hero');
+  var heroContent = hero ? hero.querySelector('.hero-content') : null;
+  var heroShapes = hero ? hero.querySelector('.hero-shapes') : null;
+
+  function onScroll() {
+    if (!hero || !heroContent) return;
+    var rect = hero.getBoundingClientRect();
+    var center = rect.top + rect.height / 2;
+    var viewportCenter = window.innerHeight / 2;
+    var offset = (center - viewportCenter) * 0.08;
+    heroContent.style.transform = 'translateY(' + Math.round(offset) + 'px)';
+    if (heroShapes) {
+      var shapesOffset = (center - viewportCenter) * 0.04;
+      heroShapes.style.transform = 'translateY(' + Math.round(shapesOffset) + 'px)';
+    }
+  }
+
+  if (hero && heroContent) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // ----- Mouse parallax on hero shapes (desktop, when hero present) -----
+  if (hero && heroShapes && window.matchMedia('(hover: hover)').matches) {
+    hero.addEventListener('mousemove', function (e) {
+      var x = (e.clientX / window.innerWidth - 0.5) * 14;
+      var y = (e.clientY / window.innerHeight - 0.5) * 14;
+      heroShapes.style.transform = 'translate(' + Math.round(x) + 'px, ' + Math.round(y) + 'px)';
+    });
+    hero.addEventListener('mouseleave', function () {
+      heroShapes.style.transform = '';
+    });
   }
 
   // ----- Mobile menu -----
@@ -113,7 +148,7 @@
         }
         var message = document.createElement('p');
         message.className = 'form-success';
-        message.style.cssText = 'color: var(--primary); font-weight: 600; margin-top: 1rem;';
+        message.style.cssText = 'color: #FF7A00; font-weight: 600; margin-top: 1rem;';
         message.textContent = 'Thank you. We will get back to you soon.';
         contactForm.appendChild(message);
         setTimeout(function () {
