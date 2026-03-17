@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function(){var t=localStorage.getItem('al-majd-theme')||'light';document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');})();
+  </script>
+  <title>Shop | Corporate Gifts & Promotional Products | Al Majd Advantages</title>
+  <meta name="description" content="Browse our range of corporate gifts, promotional products, and branded merchandise. Water bottles, bags, notebooks, tech gifts and more.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="shop.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-text">Al Majd Shop</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="gift-items.html" class="nav-link">Gift Items</a></li>
+          <li><a href="shop.html" class="nav-link active">Shop</a></li>
+          <li><a href="branding.html" class="nav-link">Branding</a></li>
+          <li><a href="advertising.html" class="nav-link">Advertising</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="shop-main">
+    <section class="shop-hero">
+      <div class="container">
+        <h1 class="shop-title">Corporate Gifts & Promotional Products</h1>
+        <p class="shop-subtitle">Quality branded merchandise for clients, employees, and events</p>
+        <div class="shop-search-bar">
+          <i class="fas fa-search"></i>
+          <input type="search" id="search-input" placeholder="Search products..." aria-label="Search products" autocomplete="off">
+        </div>
+      </div>
+    </section>
+
+    <div class="shop-layout container">
+      <!-- Filters sidebar -->
+      <aside class="shop-filters" id="shop-filters">
+        <div class="filters-header">
+          <h3>Filters</h3>
+          <button class="filters-close" id="filters-close" aria-label="Close filters"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="filter-group">
+          <h4>Category</h4>
+          <div class="filter-options" id="filter-category"></div>
+        </div>
+        <div class="filter-group">
+          <h4>Price Range</h4>
+          <div class="price-range">
+            <input type="number" id="price-min" placeholder="Min" min="0">
+            <span>–</span>
+            <input type="number" id="price-max" placeholder="Max" min="0">
+          </div>
+        </div>
+        <div class="filter-group">
+          <h4>Rating</h4>
+          <div class="filter-options" id="filter-rating"></div>
+        </div>
+        <button class="btn btn-secondary btn-block" id="clear-filters">Clear Filters</button>
+      </aside>
+
+      <div class="shop-content">
+        <div class="shop-toolbar">
+          <button class="filters-toggle" id="filters-toggle" aria-label="Open filters">
+            <i class="fas fa-filter"></i> Filters
+          </button>
+          <div class="shop-sort">
+            <label for="sort-select">Sort by</label>
+            <select id="sort-select" aria-label="Sort products">
+              <option value="popular">Popularity</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Rating</option>
+            </select>
+          </div>
+          <span class="product-count" id="product-count">0 products</span>
+        </div>
+
+        <div class="products-grid" id="products-grid"></div>
+        <div class="products-empty" id="products-empty" hidden>
+          <i class="fas fa-search"></i>
+          <p>No products match your filters. Try adjusting your search or filters.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="filters-overlay" id="filters-overlay" aria-hidden="true"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Al Majd Advantages Trad & Cont. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="products-data.js"></script>
+  <script src="shop.js"></script>
+</body>
+</html>

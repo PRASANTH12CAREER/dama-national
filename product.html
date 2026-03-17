@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function(){var t=localStorage.getItem('al-majd-theme')||'light';document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');})();
+  </script>
+  <title>Product | Al Majd Advantages</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="shop.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-text">Al Majd Shop</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="gift-items.html" class="nav-link">Gift Items</a></li>
+          <li><a href="shop.html" class="nav-link active">Shop</a></li>
+          <li><a href="branding.html" class="nav-link">Branding</a></li>
+          <li><a href="advertising.html" class="nav-link">Advertising</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="product-main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="shop.html">Shop</a>
+        <span aria-hidden="true">/</span>
+        <span id="breadcrumb-product">Product</span>
+      </nav>
+
+      <div class="product-detail" id="product-detail">
+        <div class="product-gallery">
+          <div class="product-image-main">
+            <img id="product-image" src="" alt="" loading="eager">
+          </div>
+        </div>
+        <div class="product-info">
+          <span class="product-category" id="product-category"></span>
+          <h1 class="product-title" id="product-title"></h1>
+          <div class="product-rating" id="product-rating"></div>
+          <p class="product-price" id="product-price"></p>
+          <p class="product-description" id="product-description"></p>
+          <button class="btn btn-cta btn-add-cart" id="add-to-cart">
+            <i class="fas fa-shopping-cart"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <section class="related-products" id="related-products">
+        <h2>Related Products</h2>
+        <div class="products-grid" id="related-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <div class="sticky-cart" id="sticky-cart" hidden>
+    <div class="sticky-cart-inner">
+      <span class="sticky-cart-price" id="sticky-cart-price"></span>
+      <button class="btn btn-cta" id="sticky-add-cart">
+        <i class="fas fa-shopping-cart"></i> Add to Cart
+      </button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Al Majd Advantages Trad & Cont. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="products-data.js"></script>
+  <script src="product.js"></script>
+</body>
+</html>
