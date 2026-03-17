@@ -1,5 +1,5 @@
 /**
- * Chachly / Dama National - Corporate Gifts, Branding & Advertising
+ * Chachly / Al Majd Advantages Trad & Cont - Corporate Gifts, Branding & Advertising
  * Interactive: mobile menu, scroll reveal, product filter, hero parallax, contact form
  */
 
@@ -94,8 +94,8 @@
         });
       },
       {
-        rootMargin: '0px 0px -40px 0px',
-        threshold: 0.05
+        rootMargin: '0px 0px -60px 0px',
+        threshold: 0.08
       }
     );
     revealEls.forEach(function (el) {
@@ -148,7 +148,7 @@
         }
         var message = document.createElement('p');
         message.className = 'form-success';
-        message.style.cssText = 'color: #FF7A00; font-weight: 600; margin-top: 1rem;';
+        message.style.cssText = 'color: #C41E3A; font-weight: 600; margin-top: 1rem;';
         message.textContent = 'Thank you. We will get back to you soon.';
         contactForm.appendChild(message);
         setTimeout(function () {
