@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function(){var t=localStorage.getItem('al-majd-theme')||'light';document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');})();
+  </script>
   <title>Advertising &amp; Promotional Campaigns | Banners &amp; Posters | Al Majd Advantages Trad & Cont</title>
   <meta name="description" content="Advertising and promotional campaigns for your brand. Banners, posters, and outdoor advertising materials to support events and gift campaigns.">
   <meta name="keywords" content="promotional campaigns, advertising materials, banners, posters, outdoor advertising">
@@ -31,9 +34,15 @@
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
-      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 

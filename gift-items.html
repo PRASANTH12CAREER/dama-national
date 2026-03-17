@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function(){var t=localStorage.getItem('al-majd-theme')||'light';document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');})();
+  </script>
   <title>Gift Ideas &amp; Gift Recommendations by Occasion | Al Majd Advantages Trad & Cont</title>
   <meta name="description" content="Explore gift ideas and gift recommendations for clients, employees, and partners. Corporate gifts, promotional items, mugs, bags, trophies, and more—by occasion and relationship.">
   <meta name="keywords" content="gift ideas, gift recommendations, corporate gift ideas, gifts for clients, gifts for employees, promotional gifts, branded gifts, gift by occasion">
@@ -31,9 +34,15 @@
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
-      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <span class="icon-sun" aria-hidden="true">☀️</span>
+          <span class="icon-moon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 

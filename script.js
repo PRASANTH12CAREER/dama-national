@@ -6,6 +6,34 @@
 (function () {
   'use strict';
 
+  // ----- Theme toggle (light/dark) -----
+  var THEME_KEY = 'al-majd-theme';
+  var themeToggle = document.getElementById('theme-toggle');
+
+  function getPreferredTheme() {
+    return localStorage.getItem(THEME_KEY) || 'light';
+  }
+
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+    localStorage.setItem(THEME_KEY, theme);
+  }
+
+  function initTheme() {
+    var theme = getPreferredTheme();
+    setTheme(theme);
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    });
+  }
+
+  initTheme();
+
   // ----- Footer year -----
   var yearEl = document.getElementById('year');
   if (yearEl) {
