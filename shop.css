@@ -425,7 +425,7 @@
 
 .product-detail {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.85fr);
   gap: 2.5rem;
   margin-bottom: 3rem;
 }

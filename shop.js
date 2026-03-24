@@ -133,7 +133,6 @@
             <div class="product-card-body">
               <h3 class="product-card-title">${escapeHtml(p.name)}</h3>
               <div class="product-card-rating">${stars}</div>
-              <p class="product-card-price">${formatPrice(p.price)}</p>
               <p class="product-card-desc">${escapeHtml(desc)}</p>
             </div>
           </a>
@@ -149,10 +148,6 @@
       html += `<i class="fas fa-star ${i <= Math.floor(r) ? 'filled' : ''}"></i>`;
     }
     return html;
-  }
-
-  function formatPrice(n) {
-    return 'OMR ' + (parseFloat(n) || 0).toFixed(2);
   }
 
   function escapeHtml(s) {

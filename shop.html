@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
   <script>
     (function(){var t=localStorage.getItem('al-majd-theme')||'light';document.documentElement.setAttribute('data-theme',t==='dark'?'dark':'light');})();
   </script>
@@ -20,7 +22,8 @@
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <span class="logo-text">Al Majd Shop</span>
+        <img src="assets/logo-main.png" alt="AL Majd Advantages Trad &amp; Cont" class="logo-img" width="360" height="96">
+        <span class="logo-text">Al Majd Advantages Trad &amp; Cont</span>
       </a>
       <nav class="nav" aria-label="Main navigation">
         <ul class="nav-list">
@@ -68,14 +71,14 @@
           <h4>Category</h4>
           <div class="filter-options" id="filter-category"></div>
         </div>
-        <div class="filter-group">
+        <!-- <div class="filter-group">
           <h4>Price Range</h4>
           <div class="price-range">
             <input type="number" id="price-min" placeholder="Min" min="0">
             <span>–</span>
             <input type="number" id="price-max" placeholder="Max" min="0">
           </div>
-        </div>
+        </div> -->
         <div class="filter-group">
           <h4>Rating</h4>
           <div class="filter-options" id="filter-rating"></div>
@@ -113,6 +116,20 @@
 
   <footer class="footer">
     <div class="container">
+      <div class="footer-connect">
+        <h4>Connect</h4>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link">
+            <img src="assets/logo-footer.png" alt="AL Majd Advantages Trad &amp; Cont" class="footer-logo" width="200" height="55" loading="lazy">
+          </a>
+        </div>
+      </div>
       <div class="footer-bottom">
         <p>&copy; <span id="year"></span> Al Majd Advantages Trad & Cont. All rights reserved.</p>
       </div>
