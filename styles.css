@@ -1114,6 +1114,58 @@ Read
   gap: 0.6rem;
 }
 
+/* ========== Service cards – scroll reveal (slide + stagger) ========== */
+.services-grid .service-card:nth-child(1).reveal {
+  transition-delay: 0.08s;
+}
+
+.services-grid .service-card:nth-child(2).reveal {
+  transition-delay: 0.2s;
+}
+
+.services-grid .service-card:nth-child(3).reveal {
+  transition-delay: 0.32s;
+}
+
+.reveal.service-card--from-left {
+  transform: translate3d(-52px, 28px, 0);
+}
+
+.reveal.service-card--from-right {
+  transform: translate3d(52px, 28px, 0);
+}
+
+.reveal.service-card--from-center {
+  transform: translate3d(0, 36px, 0) scale(0.97);
+}
+
+.reveal.service-card--from-left.visible,
+.reveal.service-card--from-right.visible,
+.reveal.service-card--from-center.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.service-card.reveal.visible:hover {
+  transform: translateY(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal.service-card--from-left,
+  .reveal.service-card--from-right,
+  .reveal.service-card--from-center {
+    transform: translate3d(0, 28px, 0);
+    opacity: 0;
+  }
+
+  .reveal.service-card--from-left.visible,
+  .reveal.service-card--from-right.visible,
+  .reveal.service-card--from-center.visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 /* ========== Featured Products & Filter Tabs ========== */
 .featured {
   background: var(--cream);
