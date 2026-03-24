@@ -50,18 +50,39 @@
   </header>
 
   <main id="main-content">
-    <!-- Hero -->
-    <section class="hero" id="hero">
-      <div class="hero-bg">
-        <div class="hero-accent-bar" aria-hidden="true"></div>
-      </div>
-      <div class="hero-shapes" aria-hidden="true">
-        <div class="hero-blob"></div>
-        <div class="hero-blob"></div>
-        <div class="hero-blob"></div>
-        <div class="hero-shape"></div>
-        <div class="hero-shape"></div>
-        <div class="hero-shape"></div>
+    <!-- Hero: modern CSS background (no text in artwork; center reserved for overlay) -->
+    <section class="hero hero--modern" id="hero">
+      <div class="hero-bg-modern" aria-hidden="true">
+        <div class="hero-bg-modern__base"></div>
+        <div class="hero-bg-modern__mesh"></div>
+        <div class="hero-bg-modern__center-clear"></div>
+        <div class="hero-bg-modern__blob hero-bg-modern__blob--1"></div>
+        <div class="hero-bg-modern__blob hero-bg-modern__blob--2"></div>
+        <div class="hero-bg-modern__blob hero-bg-modern__blob--3"></div>
+        <svg class="hero-bg-modern__svg hero-bg-modern__svg--left" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
+          <rect x="28" y="48" width="144" height="92" rx="10" fill="rgba(211,47,47,0.06)" stroke="rgba(211,47,47,0.1)" stroke-width="1.5"/>
+          <rect x="52" y="28" width="96" height="28" rx="5" fill="rgba(211,47,47,0.05)"/>
+          <rect x="64" y="72" width="72" height="10" rx="2" fill="rgba(211,47,47,0.06)"/>
+          <rect x="64" y="88" width="72" height="10" rx="2" fill="rgba(211,47,47,0.04)"/>
+          <circle cx="100" cy="128" r="4" fill="rgba(211,47,47,0.12)"/>
+        </svg>
+        <svg class="hero-bg-modern__svg hero-bg-modern__svg--right" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
+          <rect x="48" y="40" width="104" height="88" rx="8" fill="rgba(211,47,47,0.05)" stroke="rgba(211,47,47,0.1)" stroke-width="1.5"/>
+          <path d="M100 32 L100 48 M88 40 L112 40" stroke="rgba(211,47,47,0.12)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="100" cy="108" r="22" stroke="rgba(211,47,47,0.1)" stroke-width="1.5" fill="rgba(211,47,47,0.04)"/>
+          <rect x="64" y="128" width="72" height="36" rx="4" fill="rgba(211,47,47,0.05)"/>
+          <rect x="40" y="52" width="40" height="28" rx="3" fill="rgba(211,47,47,0.06)"/>
+        </svg>
+        <div class="hero-bg-modern__pieces">
+          <img class="hero-bg-modern__piece hero-bg-modern__piece--printer" src="public/services/printer.jpeg" alt="" width="72" height="72" loading="eager" decoding="async">
+          <img class="hero-bg-modern__piece hero-bg-modern__piece--printer2" src="public/products/Technolog gifts/[ITGL 1256] NEXO - Giftoloy 4-in-1 Wireless Charger with Night Light - White.jpg" alt="" width="72" height="72" loading="eager" decoding="async">
+          <img class="hero-bg-modern__piece hero-bg-modern__piece--gift" src="public/products/Water Bottles &amp; Mugs/LUCCA - Giftology Ceramic Mug with Cork and Lid - White.jpg" alt="" width="72" height="72" loading="eager" decoding="async">
+          <img class="hero-bg-modern__piece hero-bg-modern__piece--gift2" src="public/products/Gifts Sets/JOUD - Giftology Coffee sets - Black.jpg" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <img class="hero-bg-modern__piece hero-bg-modern__piece--brand" src="public/products/T-shirts/[ADF Black-Small] ADF - SANTHOME All Day Fresh Polo Shirt with UV protection (Small, Black).jpg" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <img class="hero-bg-modern__piece hero-bg-modern__piece--brand2" src="public/products/Note Books/JURSI - Giftology A5 PU Notebook with Pen Loop - Royal Blue.jpg" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <img class="hero-bg-modern__piece hero-bg-modern__piece--brand2" src="public/services/note books.jpg" alt="" width="72" height="72" loading="lazy" decoding="async">
+          <img class="hero-bg-modern__piece hero-bg-modern__piece--brand2" src="public/services/note books.jpg" alt="" width="72" height="72" loading="lazy" decoding="async">
+        </div>
       </div>
       <div class="container hero-content reveal">
         <p class="hero-eyebrow">Since 2008</p>
