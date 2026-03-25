@@ -12,7 +12,6 @@
   <meta name="description" content="2026 corporate catalogs for Oman: gift items, printing, and branding in one desk. Browse sections and request a quote from Al Majd Advantages Trad &amp; Cont.">
   <meta name="keywords" content="2026 corporate catalogs, corporate gifts Oman, printing catalog, branding catalog, promotional gifts">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="catalog-viewer.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -69,14 +68,9 @@
         <p class="section-subtitle reveal">Select a catalog below to open the matching service area, or <a href="contact.html">request a combined quote</a> for multiple lines.</p>
 
         <div class="catalog-showcase" role="list">
-          <div class="catalog-card catalog-card--1 reveal" id="printing" role="listitem">
+          <a href="advertising.html" class="catalog-card catalog-card--1 reveal" id="printing" role="listitem">
             <div class="catalog-card__glow" aria-hidden="true"></div>
-            <button
-              type="button"
-              class="catalog-card__frame catalog-card__frame--open"
-              data-catalog="print"
-              aria-label="Open the 2026 Printing catalog in the page viewer"
-            >
+            <div class="catalog-card__frame">
               <img
                 src="assets/catalogs/printing.png"
                 alt="2026 Printing corporate catalog cover"
@@ -86,18 +80,19 @@
                 decoding="async"
                 fetchpriority="high"
               />
-            </button>
+            </div>
             <span class="catalog-card__caption"><i class="fas fa-print" aria-hidden="true"></i> Printing</span>
-            <a href="advertising.html" class="catalog-card__service-link">Printing services <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-          <div class="catalog-card catalog-card--2 reveal" id="gift-items" role="listitem">
+          </a>
+          <a
+            href="https://www.thegiftscatalog.com/corporate-gifts-2026/"
+            class="catalog-card catalog-card--2 reveal"
+            id="gift-items"
+            role="listitem"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="catalog-card__glow" aria-hidden="true"></div>
-            <button
-              type="button"
-              class="catalog-card__frame catalog-card__frame--open"
-              data-catalog="gifts"
-              aria-label="Open the 2026 Gift Items catalog in the page viewer"
-            >
+            <div class="catalog-card__frame">
               <img
                 src="assets/catalogs/gift-items.png"
                 alt="2026 Gift Items corporate catalog cover"
@@ -106,18 +101,19 @@
                 loading="lazy"
                 decoding="async"
               />
-            </button>
+            </div>
             <span class="catalog-card__caption"><i class="fas fa-gift" aria-hidden="true"></i> Gift items</span>
-            <a href="gift-items.html" class="catalog-card__service-link">Gift items services <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-          <div class="catalog-card catalog-card--3 reveal" id="branding" role="listitem">
+          </a>
+          <a
+            href="https://corporategiveawayscatalogue-2026.com/mobile/index.html#p=1"
+            class="catalog-card catalog-card--3 reveal"
+            id="branding"
+            role="listitem"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="catalog-card__glow" aria-hidden="true"></div>
-            <button
-              type="button"
-              class="catalog-card__frame catalog-card__frame--open"
-              data-catalog="branding"
-              aria-label="Open the 2026 Branding catalog in the page viewer"
-            >
+            <div class="catalog-card__frame">
               <img
                 src="assets/catalogs/branding.png"
                 alt="2026 Branding corporate catalog cover"
@@ -126,10 +122,9 @@
                 loading="lazy"
                 decoding="async"
               />
-            </button>
+            </div>
             <span class="catalog-card__caption"><i class="fas fa-palette" aria-hidden="true"></i> Branding</span>
-            <a href="branding.html" class="catalog-card__service-link">Branding services <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
+          </a>
         </div>
 
         <div class="section-cta reveal">
@@ -184,75 +179,6 @@
     </div>
   </footer>
 
-  <div
-    id="catalog-viewer"
-    class="catalog-viewer"
-    aria-hidden="true"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="catalog-viewer-title"
-  >
-    <div class="catalog-viewer__backdrop" aria-hidden="true"></div>
-    <div class="catalog-viewer__shell">
-      <header class="catalog-viewer__toolbar">
-        <h2 id="catalog-viewer-title" class="catalog-viewer__title">Catalog</h2>
-        <div class="catalog-viewer__toolbar-actions">
-          <button type="button" class="catalog-viewer__btn" data-catalog-zoom-out title="Zoom out" aria-label="Zoom out">
-            <i class="fas fa-minus" aria-hidden="true"></i>
-          </button>
-          <button type="button" class="catalog-viewer__btn" data-catalog-zoom-in title="Zoom in" aria-label="Zoom in">
-            <i class="fas fa-plus" aria-hidden="true"></i>
-          </button>
-          <a
-            class="catalog-viewer__btn"
-            data-catalog-download
-            href="#"
-            download
-            title="Download PDF"
-            aria-label="Download full PDF"
-          ><i class="fas fa-download" aria-hidden="true"></i></a>
-          <button type="button" class="catalog-viewer__btn" data-catalog-fullscreen title="Fullscreen" aria-label="Toggle fullscreen">
-            <i class="fas fa-expand" aria-hidden="true"></i>
-          </button>
-          <button
-            type="button"
-            class="catalog-viewer__btn catalog-viewer__btn--close"
-            data-catalog-close
-            title="Close"
-            aria-label="Close catalog"
-          >
-            <i class="fas fa-times" aria-hidden="true"></i>
-          </button>
-        </div>
-      </header>
-      <div class="catalog-viewer__stage">
-        <div class="catalog-viewer__loading is-hidden" hidden>
-          <div class="catalog-viewer__spinner" aria-hidden="true"></div>
-          <p class="catalog-viewer__progress">Loading…</p>
-        </div>
-        <div class="catalog-viewer__book-scaler">
-          <div class="catalog-book-root">
-            <div id="catalog-book" class="catalog-viewer__book"></div>
-          </div>
-        </div>
-      </div>
-      <footer class="catalog-viewer__footer">
-        <button type="button" class="catalog-viewer__btn" data-catalog-prev aria-label="Previous pages">
-          <i class="fas fa-chevron-left" aria-hidden="true"></i>
-        </button>
-        <span id="catalog-page-label" class="catalog-viewer__page-label">Pages 1–2</span>
-        <button type="button" class="catalog-viewer__btn" data-catalog-next aria-label="Next pages">
-          <i class="fas fa-chevron-right" aria-hidden="true"></i>
-        </button>
-        <p class="catalog-viewer__hint">Swipe or drag corners to turn · Arrow keys</p>
-      </footer>
-    </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-  <script src="https://unpkg.com/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="script.js"></script>
-  <script src="catalog-viewer.js"></script>
 </body>
 </html>
