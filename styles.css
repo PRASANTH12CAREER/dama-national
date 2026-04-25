@@ -709,6 +709,70 @@ img {
   isolation: isolate;
 }
 
+/* Panoramic desktop banner: hidden on small screens; scales to full content width on large */
+.hero-bg-modern__desktop-wrap,
+.hero-bg-modern__desktop-hero {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero.hero--modern {
+    min-height: 0;
+    padding: 0 0 3rem;
+    display: block;
+    background: #0a0a0a;
+  }
+
+  .hero--modern .hero-bg-modern {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    z-index: 0;
+  }
+
+  .hero--modern .hero-bg-modern__desktop-wrap {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    background: #0a0a0a;
+  }
+
+  .hero--modern .hero-bg-modern__desktop-hero {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center top;
+  }
+
+  .hero--modern .hero-bg-modern__artwork {
+    display: none;
+  }
+
+  .hero--modern .hero-scroll {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .hero--modern .hero-scroll a {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .hero--modern .hero-scroll a:hover {
+    background: rgba(211, 47, 47, 0.45);
+    border-color: #ef5350;
+    color: #ffffff;
+  }
+}
+
 .hero-bg-modern {
   position: absolute;
   inset: 0;
