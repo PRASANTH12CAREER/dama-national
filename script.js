@@ -158,9 +158,9 @@
   }
 
   // ----- Contact form (FormSubmit AJAX → inbox). Needs http(s), not file://. Same subject threads in Gmail → unique subject each send -----
-  var CONTACT_FORM_AJAX = 'https://formsubmit.co/ajax/prasanthaprabhakaran@gmail.com';
+  var CONTACT_FORM_AJAX = 'https://formsubmit.co/ajax/info@almajdatc.com';
   var CONTACT_SUBJECT_BASE = 'Email from AL Majd Advantages Trad & Cont website';
-  var CONTACT_MAIL_TO = 'prasanthaprabhakaran@gmail.com';
+  var CONTACT_MAIL_TO = 'info@almajdatc.com';
 
   var CONTACT_NEEDS_SERVER_MSG =
     'This form does not work when the page is opened as a file (file:///…). Use your live website or a local server (e.g. Live Server / npx serve), then open http://localhost. Or email ' +
