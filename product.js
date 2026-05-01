@@ -11,8 +11,6 @@
   const product = products.find(p => p.id === id);
   const productDetail = document.getElementById('product-detail');
   const relatedSection = document.getElementById('related-products');
-  const stickyCart = document.getElementById('sticky-cart');
-  const stickyPrice = document.getElementById('sticky-cart-price');
   const addToCartBtn = document.getElementById('add-to-cart');
   const stickyAddBtn = document.getElementById('sticky-add-cart');
 
@@ -23,10 +21,6 @@
       html += `<i class="fas fa-star ${i <= Math.floor(r) ? 'filled' : ''}"></i>`;
     }
     return html;
-  }
-
-  function formatPrice(n) {
-    return 'OMR ' + (parseFloat(n) || 0).toFixed(2);
   }
 
   function escapeHtml(s) {
@@ -44,11 +38,7 @@
     document.getElementById('product-category').textContent = escapeHtml(p.category);
     document.getElementById('product-title').textContent = p.name;
     document.getElementById('product-rating').innerHTML = renderStars(p.rating);
-    document.getElementById('product-price').textContent = formatPrice(p.price);
     document.getElementById('product-description').textContent = p.description || '';
-
-    if (stickyPrice) stickyPrice.textContent = formatPrice(p.price);
-    if (stickyCart) stickyCart.hidden = false;
   }
 
   function getRelated(currentId, category, limit) {
@@ -79,7 +69,6 @@
             <div class="product-card-body">
               <h3 class="product-card-title">${escapeHtml(r.name)}</h3>
               <div class="product-card-rating">${stars}</div>
-              <p class="product-card-price">${formatPrice(r.price)}</p>
               <p class="product-card-desc">${escapeHtml(desc)}</p>
             </div>
           </a>
@@ -105,7 +94,6 @@
         productDetail.innerHTML = '<p class="products-empty">Product not found. <a href="shop.html">Back to shop</a></p>';
       }
       if (relatedSection) relatedSection.style.display = 'none';
-      if (stickyCart) stickyCart.hidden = true;
       return;
     }
 

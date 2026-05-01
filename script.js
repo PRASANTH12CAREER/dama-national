@@ -158,7 +158,7 @@
   }
 
   // ----- Contact form (FormSubmit AJAX → inbox). Requires HTTPS hosting (not file://) + one-time email activation -----
-  var CONTACT_FORM_AJAX = 'https://formsubmit.co/ajax/info@almajdatc.com';
+  var CONTACT_FORM_AJAX = 'https://formsubmit.co/ajax/prasanthaprabhakaran@gmail.com';
   var CONTACT_MAIL_SUBJECT = 'Email from AL Majd Advantages Trad & Cont website';
   var CONTACT_MAIL_TO = 'prasanthaprabhakaran@gmail.com';//'info@almajdatc.com';
 
