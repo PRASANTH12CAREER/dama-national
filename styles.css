@@ -762,14 +762,17 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  filter: contrast(1.06) saturate(1.08) brightness(1.03);
+  filter: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  image-rendering: auto;
 }
 
 @media (min-width: 1024px) {
   .hero.hero--modern {
     padding: 0 0 3rem;
-    /* background: #0a0a0a; */
-    background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 30%, transparent 70%, rgba(196,30,58,0.03) 100%);
+    background: #0a0a0a;
+    /* background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 30%, transparent 70%, rgba(196,30,58,0.03) 100%); */
   }
 
   .hero--modern .hero-bg-modern {
@@ -821,7 +824,10 @@ img {
     height: 100%;
     object-fit: cover;
     object-position: center center;
-    filter: contrast(1.08) saturate(1.1) brightness(1.03);
+    filter: none;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    image-rendering: auto;
   }
 
   @media (prefers-reduced-motion: reduce) {
