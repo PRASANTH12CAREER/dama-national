@@ -157,13 +157,53 @@
     });
   }
 
-  // ----- Contact form (FormSubmit AJAX → inbox). Requires HTTPS hosting (not file://) + one-time email activation -----
+  // ----- Contact form (FormSubmit AJAX → inbox). Needs http(s), not file://. Same subject threads in Gmail → unique subject each send -----
   var CONTACT_FORM_AJAX = 'https://formsubmit.co/ajax/prasanthaprabhakaran@gmail.com';
-  var CONTACT_MAIL_SUBJECT = 'Email from AL Majd Advantages Trad & Cont website';
-  var CONTACT_MAIL_TO = 'prasanthaprabhakaran@gmail.com';//'info@almajdatc.com';
+  var CONTACT_SUBJECT_BASE = 'Email from AL Majd Advantages Trad & Cont website';
+  var CONTACT_MAIL_TO = 'prasanthaprabhakaran@gmail.com';
+
+  var CONTACT_NEEDS_SERVER_MSG =
+    'This form does not work when the page is opened as a file (file:///…). Use your live website or a local server (e.g. Live Server / npx serve), then open http://localhost. Or email ' +
+    CONTACT_MAIL_TO +
+    '.';
 
   function formSubmitSuccess(data) {
     return data.success === true || data.success === 'true';
+  }
+
+  function clearContactFormFeedback(form) {
+    var ok = form.querySelector('.form-success');
+    if (ok) ok.remove();
+    var err = form.querySelector('.form-error');
+    if (err) err.remove();
+  }
+
+  function showContactFormError(form, message) {
+    clearContactFormFeedback(form);
+    var errEl = document.createElement('p');
+    errEl.className = 'form-error';
+    errEl.style.cssText = 'color: #b91c1c; font-weight: 600; margin-top: 1rem;';
+    errEl.textContent = message;
+    form.appendChild(errEl);
+  }
+
+  function humanizeSubmitError(raw) {
+    if (!raw || typeof raw !== 'string') return raw;
+    if (/web server|html files/i.test(raw)) return CONTACT_NEEDS_SERVER_MSG;
+    return raw;
+  }
+
+  /** Stops Gmail/clients stacking every notice in one thread (looks like “same mail at the bottom”). */
+  function contactEmailSubject(senderName) {
+    var stamp = new Date();
+    var y = stamp.getFullYear();
+    var mo = String(stamp.getMonth() + 1).padStart(2, '0');
+    var d = String(stamp.getDate()).padStart(2, '0');
+    var h = String(stamp.getHours()).padStart(2, '0');
+    var mi = String(stamp.getMinutes()).padStart(2, '0');
+    var s = String(stamp.getSeconds()).padStart(2, '0');
+    var safeName = (senderName || 'Website').replace(/\s+/g, ' ').slice(0, 80);
+    return CONTACT_SUBJECT_BASE + ' — ' + safeName + ' · ' + y + '-' + mo + '-' + d + ' ' + h + ':' + mi + ':' + s;
   }
 
   var contactForm = document.getElementById('contact-form');
@@ -172,6 +212,11 @@
       e.preventDefault();
       var honey = contactForm.querySelector('[name="_honey"]');
       if (honey && honey.value) return;
+
+      if (window.location.protocol === 'file:') {
+        showContactFormError(contactForm, CONTACT_NEEDS_SERVER_MSG);
+        return;
+      }
 
       var fd = new FormData(contactForm);
       var name = (fd.get('name') || '').toString().trim();
@@ -185,18 +230,14 @@
         btn.textContent = 'Sending…';
       }
 
-      var prevOk = contactForm.querySelector('.form-success');
-      if (prevOk) prevOk.remove();
-      var prevErr = contactForm.querySelector('.form-error');
-      if (prevErr) prevErr.remove();
+      clearContactFormFeedback(contactForm);
 
       var params = new URLSearchParams();
       params.set('name', name);
       params.set('email', email);
       params.set('message', msg);
-      params.set('_subject', CONTACT_MAIL_SUBJECT);
+      params.set('_subject', contactEmailSubject(name));
       params.set('_replyto', email);
-      params.set('_template', 'table');
 
       fetch(CONTACT_FORM_AJAX, {
         method: 'POST',
@@ -228,6 +269,7 @@
         })
         .then(function () {
           contactForm.reset();
+          clearContactFormFeedback(contactForm);
           var note = document.createElement('p');
           note.className = 'form-success';
           note.style.cssText = 'color: #C41E3A; font-weight: 600; margin-top: 1rem;';
@@ -235,14 +277,11 @@
           contactForm.appendChild(note);
         })
         .catch(function (err) {
-          var errEl = document.createElement('p');
-          errEl.className = 'form-error';
-          errEl.style.cssText = 'color: #b91c1c; font-weight: 600; margin-top: 1rem;';
-          errEl.textContent =
+          var msg =
             err && err.message
-              ? err.message
+              ? humanizeSubmitError(err.message)
               : 'Could not send right now. Please try again or email us at ' + CONTACT_MAIL_TO + '.';
-          contactForm.appendChild(errEl);
+          showContactFormError(contactForm, msg);
         })
         .finally(function () {
           if (btn) {
