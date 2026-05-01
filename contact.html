@@ -88,7 +88,10 @@
             </ul>
           </div>
           <div class="contact-form-wrapper reveal">
-            <form class="contact-form" id="contact-form" action="#" method="post">
+            <!-- Native POST works if JS is off; first use activates FormSubmit for this address -->
+            <form class="contact-form" id="contact-form" action="https://formsubmit.co/info@almajdatc.com" method="POST">
+              <input type="hidden" name="_subject" value="Email from AL Majd Advantages Trad & Cont website">
+              <input type="text" name="_honey" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
               <div class="form-group">
                 <label for="name">Name <span class="required">*</span></label>
                 <input type="text" id="name" name="name" required placeholder="Your name">

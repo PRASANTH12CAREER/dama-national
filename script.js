@@ -157,32 +157,99 @@
     });
   }
 
-  // ----- Contact form (prevent default, show message) -----
+  // ----- Contact form (FormSubmit AJAX → inbox). Requires HTTPS hosting (not file://) + one-time email activation -----
+  var CONTACT_FORM_AJAX = 'https://formsubmit.co/ajax/info@almajdatc.com';
+  var CONTACT_MAIL_SUBJECT = 'Email from AL Majd Advantages Trad & Cont website';
+  var CONTACT_MAIL_TO = 'prasanthaprabhakaran@gmail.com';//'info@almajdatc.com';
+
+  function formSubmitSuccess(data) {
+    return data.success === true || data.success === 'true';
+  }
+
   var contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      var btn = this.querySelector('button[type="submit"]');
+      var honey = contactForm.querySelector('[name="_honey"]');
+      if (honey && honey.value) return;
+
+      var fd = new FormData(contactForm);
+      var name = (fd.get('name') || '').toString().trim();
+      var email = (fd.get('email') || '').toString().trim();
+      var msg = (fd.get('message') || '').toString().trim();
+
+      var btn = contactForm.querySelector('button[type="submit"]');
       var originalText = btn ? btn.textContent : 'Send Message';
       if (btn) {
         btn.disabled = true;
         btn.textContent = 'Sending…';
       }
-      // Simulate send (static site: no backend)
-      setTimeout(function () {
-        if (btn) {
-          btn.disabled = false;
-          btn.textContent = 'Message Sent!';
-        }
-        var message = document.createElement('p');
-        message.className = 'form-success';
-        message.style.cssText = 'color: #C41E3A; font-weight: 600; margin-top: 1rem;';
-        message.textContent = 'Thank you. We will get back to you soon.';
-        contactForm.appendChild(message);
-        setTimeout(function () {
-          if (btn) btn.textContent = originalText;
-        }, 2000);
-      }, 800);
+
+      var prevOk = contactForm.querySelector('.form-success');
+      if (prevOk) prevOk.remove();
+      var prevErr = contactForm.querySelector('.form-error');
+      if (prevErr) prevErr.remove();
+
+      var params = new URLSearchParams();
+      params.set('name', name);
+      params.set('email', email);
+      params.set('message', msg);
+      params.set('_subject', CONTACT_MAIL_SUBJECT);
+      params.set('_replyto', email);
+      params.set('_template', 'table');
+
+      fetch(CONTACT_FORM_AJAX, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Accept: 'application/json'
+        },
+        body: params.toString()
+      })
+        .then(function (res) {
+          return res.text().then(function (text) {
+            var data = {};
+            try {
+              data = JSON.parse(text);
+            } catch (ignore) {}
+            if (!res.ok) {
+              throw new Error(data.message || text || 'Request failed');
+            }
+            if (!formSubmitSuccess(data)) {
+              throw new Error(
+                data.message ||
+                  'Submission was not accepted. Check spam folder or email us at ' +
+                    CONTACT_MAIL_TO +
+                    '.'
+              );
+            }
+            return data;
+          });
+        })
+        .then(function () {
+          contactForm.reset();
+          var note = document.createElement('p');
+          note.className = 'form-success';
+          note.style.cssText = 'color: #C41E3A; font-weight: 600; margin-top: 1rem;';
+          note.textContent = 'Thank you. Your message was sent; we will reply soon.';
+          contactForm.appendChild(note);
+        })
+        .catch(function (err) {
+          var errEl = document.createElement('p');
+          errEl.className = 'form-error';
+          errEl.style.cssText = 'color: #b91c1c; font-weight: 600; margin-top: 1rem;';
+          errEl.textContent =
+            err && err.message
+              ? err.message
+              : 'Could not send right now. Please try again or email us at ' + CONTACT_MAIL_TO + '.';
+          contactForm.appendChild(errEl);
+        })
+        .finally(function () {
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }
+        });
     });
   }
 })();
