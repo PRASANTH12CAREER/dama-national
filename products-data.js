@@ -106,7 +106,7 @@ const PRODUCTS = [
     id: 12,
     name: "Giftology 10000mAh Mag Wireless Powerbank",
     price: 72,
-    category: "Technolog gifts",
+    category: "Technology Gifts",
     rating: 4.6,
     image: "public/products/Technolog gifts/SOLANO - @memorii 10000mAh Mag Wireless Powerbank with Inbuilt Cables.jpg",
     description: "10000mAh magnetic wireless powerbank with inbuilt cables. Fast charging for phones and devices."
